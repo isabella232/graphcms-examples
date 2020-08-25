@@ -5,7 +5,7 @@ module.exports = {
       options: {
         typeName: `GraphCMS`,
         fieldName: `gcms`,
-        url: `https://api-eu-central-1.graphcms.com/v2/ck8sn5tnf01gc01z89dbc7s0o/master`,
+        url: `https://serve.onegraph.com/graphql?app_id=4d05e39e-80a8-401b-ab53-3da7b8c6f9a6`,
       },
     },
   ],

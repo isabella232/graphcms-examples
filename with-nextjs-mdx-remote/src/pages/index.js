@@ -3,15 +3,17 @@ import { GraphQLClient } from 'graphql-request';
 
 export async function getStaticProps() {
   const graphcms = new GraphQLClient(
-    'https://api-eu-central-1.graphcms.com/v2/ck8sn5tnf01gc01z89dbc7s0o/master'
+    'https://serve.onegraph.com/graphql?app_id=4d05e39e-80a8-401b-ab53-3da7b8c6f9a6'
   );
 
-  const { products } = await graphcms.request(
+  const { graphcms: { products } } = await graphcms.request(
     `
       { 
-        products {
-          slug
-          name
+        graphcms {
+          products {
+            slug
+            name
+          }
         }
       }
     `

@@ -10,18 +10,19 @@
           slug: params.slug,
         },
         query: `query ProductPageQuery($slug: String!) {
-      		product(where: { slug: $slug }) {
-        		name
-        		description
-        	price
-      	}
-    }
-    `,
+                  graphcms {
+                    product(where: { slug: $slug }) {
+                      name
+                      description
+                      price
+                    }
+                  }
+                }`,
       }),
     });
     const { data } = await res.json();
 
-    product = data.product;
+    product = data.graphcms.product;
   }
 
   let product = {};

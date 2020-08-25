@@ -2,31 +2,30 @@ import { GraphQLClient } from 'graphql-request';
 
 export default async ({ body }, res) => {
   const graphcms = new GraphQLClient(
-    'https://api-eu-central-1.graphcms.com/v2/ck8sn5tnf01gc01z89dbc7s0o/master',
-    {
-      headers: {
-        authorization: `Bearer ${process.env.GRAPHCMS_MUTATION_TOKEN}`,
-      },
-    }
+    'https://serve.onegraph.com/graphql?app_id=4d05e39e-80a8-401b-ab53-3da7b8c6f9a6',
   );
 
   const { createVote } = await graphcms.request(
-    `mutation upvoteProduct($id: ID!) {
-      createVote(data: { product: { connect: { id: $id } } }) {
-        id
+    `mutation upvoteProduct($id: ID! $token: String!) {
+      graphcms(auths: { graphcmsToken: $token }) {
+        createVote(data: { product: { connect: { id: $id } } }) {
+          id
+        }
       }
     }`,
-    { id: body.id }
+    { id: body.id, token: process.env.GRAPHCMS_MUTATION_TOKEN }
   );
 
   await graphcms.request(
     `mutation publishUpvote($id: ID!) {
-      publishVote(where: { id: $id }, to: PUBLISHED) {
-        id
+      graphcms(auths: { graphcmsToken: $token }) {
+        publishVote(where: { id: $id }, to: PUBLISHED) {
+          id
+        }
       }
     }`,
-    { id: createVote.id }
+    { id: createVote.id, token: process.env.GRAPHCMS_MUTATION_TOKEN }
   );
 
-  res.status(201).json({ id: createVote.id });
+  res.status(201).json({ id: graphcms.createVote.id });
 };

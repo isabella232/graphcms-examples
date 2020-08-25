@@ -5,16 +5,18 @@ import Img from 'gatsby-image';
 const pageQuery = graphql`
   {
     gcms {
-      products {
-        name
-        slug
-        price
-        image {
-          url
-          node {
-            childImageSharp {
-              fluid(maxWidth: 560) {
-                ...GatsbyImageSharpFluid
+      graphcms {
+        products {
+          name
+          slug
+          price
+          image {
+            url
+            node {
+              childImageSharp {
+                fluid(maxWidth: 560) {
+                  ...GatsbyImageSharpFluid
+                }
               }
             }
           }
@@ -26,7 +28,7 @@ const pageQuery = graphql`
 
 const IndexPage = () => {
   const {
-    gcms: { products },
+    gcms: { graphcms: { products } },
   } = useStaticQuery(pageQuery);
 
   return products.map((product) => (

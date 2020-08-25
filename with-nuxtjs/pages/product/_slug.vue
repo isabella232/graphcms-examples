@@ -21,13 +21,13 @@ import axios from 'axios'
 export default {
   async asyncData(context) {
     const { data } = await axios.post(
-      'https://api-eu-central-1.graphcms.com/v2/ck8sn5tnf01gc01z89dbc7s0o/master',
+      'https://serve.onegraph.com/graphql?app_id=4d05e39e-80a8-401b-ab53-3da7b8c6f9a6',
       {
-        query: `query GetProduct($slug: String){ product(where: {slug: $slug}) { name description price } }`,
+        query: `query GetProduct($slug: String){ graphcms { product(where: {slug: $slug}) { name description price } } }`,
         variables: { slug: context.params.slug }
       }
     )
-    return { product: data.data.product }
+    return { product: data.data.graphcms.product }
   },
   head() {
     return {

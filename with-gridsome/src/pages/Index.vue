@@ -12,7 +12,7 @@
 
     <p class="home-links" v-if="$page.gcms">
       <g-link
-        v-for="product in $page.gcms.products"
+        v-for="product in $page.gcms.graphcms.products"
         :key="product.slug"
         class="nav__link"
         :to="'product/' + product.slug"
@@ -33,9 +33,11 @@ export default {
 <page-query>
   {
     gcms {
-      products {
-        name
-        slug
+      graphcms {
+        products {
+          name
+          slug
+        }
       }
     }
   }

@@ -1,14 +1,16 @@
 exports.createPages = async ({ graphql, actions: { createPage } }) => {
   const {
     data: {
-      gcms: { products },
+      gcms: { graphcms: { products } },
     },
   } = await graphql(`
     {
       gcms {
-        products {
-          id
-          slug
+        graphcms {
+          products {
+            id
+            slug
+          }
         }
       }
     }

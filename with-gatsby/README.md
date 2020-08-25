@@ -6,7 +6,7 @@ This example demonstrates how to query data from GraphCMS with `gatsby-source-gr
 
 • [Demo](https://graphcms-with-gatsby.now.sh)
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/import/project?template=https://github.com/GraphCMS/graphcms-examples/tree/master/with-gatsby)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/import/project?template=https://github.com/OneGraph/graphcms-examples/tree/master/with-gatsby)
 
 ## How to Use
 
@@ -30,4 +30,4 @@ yarn dev
 
 ### Run on Codesandbox
 
-[![Develop with Codesandbox](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/github/GraphCMS/graphcms-examples/tree/master/with-gatsby)
+[![Develop with Codesandbox](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/github/OneGraph/graphcms-examples/tree/master/with-gatsby)

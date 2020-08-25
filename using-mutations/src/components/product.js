@@ -5,9 +5,11 @@ function Product({ id, name }) {
   const { data, mutate } = useSWR(
     [
       `query productVotesCount($id: ID!) {
-        productVotes: votesConnection(where: {product: {id: $id}}) {
-          aggregate {
-            count
+        graphcms {
+          productVotes: votesConnection(where: {product: {id: $id}}) {
+            aggregate {
+              count
+            }
           }
         }
       }`,
@@ -15,7 +17,7 @@ function Product({ id, name }) {
     ],
     (query, id) =>
       request(
-        'https://api-eu-central-1.graphcms.com/v2/ck8sn5tnf01gc01z89dbc7s0o/master',
+        'https://serve.onegraph.com/graphql?app_id=4d05e39e-80a8-401b-ab53-3da7b8c6f9a6',
         query,
         { id }
       ),
@@ -23,7 +25,7 @@ function Product({ id, name }) {
   );
 
   async function handleClick() {
-    const newCount = data.productVotes.aggregate.count + 1;
+    const newCount = data.graphcms.productVotes.aggregate.count + 1;
 
     mutate(
       { ...data, productVotes: { aggregate: { count: newCount } } },
@@ -43,7 +45,7 @@ function Product({ id, name }) {
     <React.Fragment>
       <h1>{name}</h1>
       <button onClick={handleClick} disabled={!data}>
-        {data ? data.productVotes.aggregate.count : 'Loading'}
+        {data ? data.graphcms.productVotes.aggregate.count : 'Loading'}
       </button>
     </React.Fragment>
   );

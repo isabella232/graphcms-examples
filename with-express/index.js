@@ -4,7 +4,7 @@ const fetch = require('node-fetch');
 
 const client = new AwesomeGraphQLClient({
   endpoint:
-    'https://api-eu-central-1.graphcms.com/v2/ck8sn5tnf01gc01z89dbc7s0o/master',
+    'https://serve.onegraph.com/graphql?app_id=4d05e39e-80a8-401b-ab53-3da7b8c6f9a6',
   fetch,
 });
 
@@ -15,14 +15,16 @@ app.set('view engine', 'ejs');
 app.get('/', async function (_, res) {
   const query = `
     { 
-      products {
-        name
-        slug
+      graphcms {
+        products {
+          name
+          slug
+        }
       }
     }
   `;
 
-  const { products } = await client.request(query);
+  const { graphcms: { products } } = await client.request(query);
 
   res.render('index', { products });
 });
@@ -30,17 +32,19 @@ app.get('/', async function (_, res) {
 app.get('/products/:slug', async function (req, res) {
   const query = `
     query ProductPageQuery($slug: String!) {
-      product(where: { slug: $slug }) {
-        name
-        description
-        price
+      graphcms {
+        product(where: { slug: $slug }) {
+          name
+          description
+          price
+        }
       }
     }
   `;
 
   const { slug } = req.params;
 
-  const { product } = await client.request(query, { slug });
+  const { graphcms: { product } } = await client.request(query, { slug });
 
   res.render('product', { product });
 });

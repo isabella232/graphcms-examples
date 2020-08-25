@@ -10,14 +10,16 @@ module.exports = function(api) {
     const { data } = await graphql(`
       {
         gcms {
-          products {
-            slug
+          graphcms {
+            products {
+              slug
+            }
           }
         }
       }
     `);
 
-    data.gcms.products.forEach(node => {
+    data.gcms.graphcms.products.forEach(node => {
       createPage({
         path: `/product/${node.slug}`,
         component: './src/templates/Product.vue',

@@ -1,17 +1,19 @@
 import { GraphQLClient } from 'graphql-request';
 
 const graphcms = new GraphQLClient(
-  'https://api-eu-central-1.graphcms.com/v2/ck8sn5tnf01gc01z89dbc7s0o/master'
+  'https://serve.onegraph.com/graphql?app_id=4d05e39e-80a8-401b-ab53-3da7b8c6f9a6'
 );
 
 export async function getStaticProps({ params }) {
-  const { product } = await graphcms.request(
+  const { graphcms: { product } } = await graphcms.request(
     `
     query ProductPageQuery($slug: String!) {
-      product(where: { slug: $slug }) {
-        name
-        description
-        price
+      graphcms {
+        product(where: { slug: $slug }) {
+          name
+          description
+          price
+        }
       }
     }
   `,
@@ -28,11 +30,13 @@ export async function getStaticProps({ params }) {
 }
 
 export async function getStaticPaths() {
-  const { products } = await graphcms.request(`
+  const { graphcms: { products } } = await graphcms.request(`
     {
-      products {
-        slug
-        name
+      graphcms {
+        products {
+          slug
+          name
+        }
       }
     }
   `);

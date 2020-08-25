@@ -38,11 +38,11 @@ export default {
       // replace `getPost` with your data fetching util / API wrapper
       try {
         const response = await fetch(
-          'https://api-eu-central-1.graphcms.com/v2/ck8sn5tnf01gc01z89dbc7s0o/master',
+          'https://serve.onegraph.com/graphql?app_id=4d05e39e-80a8-401b-ab53-3da7b8c6f9a6',
           {
             method: 'POST',
             body: JSON.stringify({
-              query: `query GetProduct($slug: String){ product(where: {slug: $slug}) { name description price } }`,
+              query: `query GetProduct($slug: String){ graphcms { product(where: {slug: $slug}) { name description price } } }`,
               variables: {
                 slug: this.$route.params.slug,
               },
@@ -52,7 +52,7 @@ export default {
         const { data } = await response.json();
         this.loading = false;
         this.error = data.error;
-        this.product = data.product;
+        this.product = data.graphcms.product;
       } catch (e) {
         // handle error
       }

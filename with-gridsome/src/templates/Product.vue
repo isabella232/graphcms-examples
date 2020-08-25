@@ -1,14 +1,14 @@
 <template>
   <Layout>
     <div>
-      <h1 v-html="$page.gcms.product.name" />
-      <p v-html="$page.gcms.product.description" />
+      <h1 v-html="$page.gcms.graphcms.product.name" />
+      <p v-html="$page.gcms.graphcms.product.description" />
       <p>
         {{
           new Intl.NumberFormat('de-DE', {
             style: 'currency',
             currency: 'EUR',
-          }).format($page.gcms.product.price / 100)
+          }).format($page.gcms.graphcms.product.price / 100)
         }}
       </p>
     </div>
@@ -18,10 +18,12 @@
 <page-query>
 query GetProduct($slug: String) {
     gcms {
-        product(where: {slug: $slug}) {
-            name
-            description
-            price
+        graphcms {
+            product(where: {slug: $slug}) {
+                name
+                description
+                price
+            }
         }
     }
 }

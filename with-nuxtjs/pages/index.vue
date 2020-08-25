@@ -31,12 +31,12 @@ export default {
   },
   async asyncData() {
     const { data } = await axios.post(
-      'https://api-eu-central-1.graphcms.com/v2/ck8sn5tnf01gc01z89dbc7s0o/master',
+      'https://serve.onegraph.com/graphql?app_id=4d05e39e-80a8-401b-ab53-3da7b8c6f9a6',
       {
-        query: `{ products { name slug } }`
+        query: `{ graphcms { products { name slug } } }`
       }
     )
-    return { products: data.data.products }
+    return { products: data.data.graphcms.products }
   }
 }
 </script>

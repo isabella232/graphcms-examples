@@ -3,12 +3,14 @@ const { gql } = require('apollo-server');
 
 const getProductsQuery = gql`
   {
-    products {
-      id
-      description
-      name
-      price
-      slug
+    graphcms {
+      products {
+        id
+        description
+        name
+        price
+        slug
+      }
     }
   }
 `;
@@ -18,13 +20,13 @@ class GraphCMSAPI extends GraphQLDataSource {
     super();
 
     this.baseURL =
-      'https://api-eu-central-1.graphcms.com/v2/ck8sn5tnf01gc01z89dbc7s0o/master';
+      'https://serve.onegraph.com/graphql?app_id=4d05e39e-80a8-401b-ab53-3da7b8c6f9a6';
   }
 
   async getProducts() {
     const { data } = await this.query(getProductsQuery);
 
-    return data.products;
+    return data.graphcms.products;
   }
 }
 

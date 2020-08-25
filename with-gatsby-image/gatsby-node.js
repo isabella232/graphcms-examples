@@ -9,7 +9,7 @@ exports.createResolvers = ({
   reporter,
 }) => {
   const resolvers = {
-    GraphCMS_Asset: {
+    GraphCMS_GraphCmsAsset: {
       node: {
         type: `File`,
         resolve: ({ url }, args, context, info) => {

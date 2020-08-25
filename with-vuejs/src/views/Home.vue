@@ -28,11 +28,11 @@ export default {
   },
   async created() {
     const response = await fetch(
-      'https://api-eu-central-1.graphcms.com/v2/ck8sn5tnf01gc01z89dbc7s0o/master',
+      'https://serve.onegraph.com/graphql?app_id=4d05e39e-80a8-401b-ab53-3da7b8c6f9a6',
       {
         method: 'POST',
         body: JSON.stringify({
-          query: `{ products { name slug } }`,
+          query: `{ graphcms { products { name slug } } }`,
         }),
       }
     );
@@ -41,7 +41,7 @@ export default {
 
     this.errors = data.errors;
     this.loading = false;
-    this.products = data.products;
+    this.products = data.graphcms.products;
   },
 };
 </script>

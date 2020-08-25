@@ -9,14 +9,16 @@ function App() {
 
   useEffect(() => {
     const fetchProducts = async () => {
-      const { products } = await request(
-        'https://api-eu-central-1.graphcms.com/v2/ck8sn5tnf01gc01z89dbc7s0o/master',
+      const { graphcms: { products } } = await request(
+        'https://serve.onegraph.com/graphql?app_id=4d05e39e-80a8-401b-ab53-3da7b8c6f9a6',
         `
       { 
-        products {
-          id
-          name
-          slug
+        graphcms {
+          products {
+            id
+            name
+            slug
+          }
         }
       }
     `

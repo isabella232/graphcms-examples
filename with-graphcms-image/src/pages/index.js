@@ -5,14 +5,16 @@ import GCMSImg from 'graphcms-image';
 const pageQuery = graphql`
   {
     gcms {
-      products {
-        name
-        slug
-        price
-        image {
-          handle
-          width
-          height
+      graphcms {
+        products {
+          name
+          slug
+          price
+          image {
+            handle
+            width
+            height
+          }
         }
       }
     }
@@ -21,7 +23,7 @@ const pageQuery = graphql`
 
 const IndexPage = () => {
   const {
-    gcms: { products },
+    gcms: { graphcms: { products } },
   } = useStaticQuery(pageQuery);
 
   return products.map((product) => (

@@ -6,7 +6,7 @@ This example demonstrates how to use `graphcms-image` with Gatsby.
 
 • [Demo](https://graphcms-with-graphcms-image.now.sh)
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/import/project?template=https://github.com/GraphCMS/graphcms-examples/tree/master/with-graphcms-image)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/import/project?template=https://github.com/OneGraph/graphcms-examples/tree/master/with-graphcms-image)
 
 ## How to Use
 
@@ -30,4 +30,4 @@ yarn dev
 
 ### Run on Codesandbox
 
-[![Develop with Codesandbox](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/github/GraphCMS/graphcms-examples/tree/master/with-graphcms-image)
+[![Develop with Codesandbox](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/github/OneGraph/graphcms-examples/tree/master/with-graphcms-image)

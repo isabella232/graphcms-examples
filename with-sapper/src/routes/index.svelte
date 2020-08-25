@@ -9,16 +9,18 @@
       body: JSON.stringify({
         query: `
       { 
-        products {
-          slug
-          name
+        graphcms {
+          products {
+            slug
+            name
+          }
         }
       }
     `,
       }),
     });
     const { data } = await res.json();
-    products = data.products;
+    products = data.graphcms.products;
   }
 </script>
 

@@ -4,10 +4,12 @@ import { graphql, useStaticQuery, Link } from 'gatsby';
 const pageQuery = graphql`
   {
     gcms {
-      products {
-        name
-        slug
-        price
+      graphcms {
+        products {
+          name
+          slug
+          price
+        }
       }
     }
   }
@@ -15,7 +17,7 @@ const pageQuery = graphql`
 
 const IndexPage = () => {
   const {
-    gcms: { products },
+    gcms: { graphcms: { products } },
   } = useStaticQuery(pageQuery);
 
   return products.map(({ slug, ...product }) => (

@@ -1,4 +1,4 @@
-<img src="https://raw.githubusercontent.com/GraphCMS/graphcms-examples/master/assets/gcms-logo.svg?sanitize=true" width="350px" alt="GraphCMS Logo" />
+<img src="https://raw.githubusercontent.com/OneGraph/graphcms-examples/master/assets/gcms-logo.svg?sanitize=true" width="350px" alt="GraphCMS Logo" />
 
 # GraphCMS Examples
 
