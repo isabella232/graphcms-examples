@@ -8,8 +8,8 @@
     "dev": "gatsby develop"
   },
   "dependencies": {
-    "gatsby": "2.20.15",
-    "gatsby-source-graphql": "2.3.2",
+    "gatsby": "2.24.50",
+    "gatsby-source-graphql": "2.7.1",
     "react": "16.13.1",
     "react-dom": "16.13.1"
   }
