@@ -2,9 +2,13 @@
 
 # GraphCMS Examples
 
-Example projects to help you get started with GraphCMS.
+Example projects to help you get started with GraphCMS on OneGraph.
 
-[Join our Slack](https://slack.graphcms.com) &middot; [Read the Docs](https://graphcms.com/docs) &middot; [Learn more about GraphCMS](https://graphcms.com)
+[Join the OneGraph Spectrum](https://onegraph.com/chat) &middot; [Read the OneGraph Docs](https://www.onegraph.com/docs) &middot; [Learn more about OneGraph](https://www.onegraph.com)
+
+[Join the GraphCMS Slack](https://slack.graphcms.com) &middot; [Read the GraphCMS Docs](https://graphcms.com/docs) &middot; [Learn more about GraphCMS](https://graphcms.com)
+
+To use GraphCMS from OneGraph, add your GraphCMS schema from the `Architect` tab on the OneGraph Dashboard.
 
 ## Examples
 
@@ -35,13 +39,3 @@ Examples demonstrating how to use GraphCMS with popular application frameworks.
 | [React.js](with-reactjs)                     | [`create-react-app`](https://github.com/facebook/create-react-app) example that uses [`apollo-client`](https://github.com/apollographql/apollo-client) to build a blog                                 | https://graphcms-with-reactjs.now.sh              |
 | [Vue.js](with-vuejs)                         | A vanilla Vue.js starter using `vue create` CLI with Vue Router                                                                                                                                        | https://graphcms-with-vuejs.now.sh                |
 | [Sapper](with-sapper)                        | A SeveltJs example using Sapper                                                                                                                                                                        | https://graphcms-with-sapper.now.sh               |
-
-### Built by the community
-
-| Name                                                                                | Author |
-| ----------------------------------------------------------------------------------- | ------ |
-| [Next.js 9 and Zeit Now Boilerplate](https://github.com/UnlyEd/next-right-now/)     | UnlyEd |
-| [Cache Boilerplate](https://github.com/UnlyEd/GraphCMS-cache-boilerplate)           | UnlyEd |
-| [Next Admin Backoffice Boilerplate](https://github.com/UnlyEd/next-right-now-admin) | UnlyEd |
-
-If you have created any examples with GraphCMS and want to see them featured here, reach out via our on-site chat on [graphcms.com](https://graphcms.com)!
