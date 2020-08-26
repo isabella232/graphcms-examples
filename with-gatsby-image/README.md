@@ -33,7 +33,7 @@ exports.createResolvers = ({
   reporter,
 }) => {
   const resolvers = {
-    GraphCMS_Asset: {
+    GraphCMS_GraphCmsAsset: {
       node: {
         type: `File`,
         resolve: ({ url }, args, context, info) => {
@@ -68,13 +68,15 @@ import Img from 'gatsby-image';
 const pageQuery = graphql`
   {
     gcms {
-      products {
-        image {
-          url
-          node {
-            childImageSharp {
-              fluid(maxWidth: 560) {
-                ...GatsbyImageSharpFluid
+      graphcms {
+        products {
+          image {
+            url
+            node {
+              childImageSharp {
+                fluid(maxWidth: 560) {
+                  ...GatsbyImageSharpFluid
+                }
               }
             }
           }
@@ -86,7 +88,7 @@ const pageQuery = graphql`
 
 const IndexPage = () => {
   const {
-    gcms: { products },
+    gcms: { graphcms: { products } },
   } = useStaticQuery(pageQuery);
 
   return products.map((product) => (
